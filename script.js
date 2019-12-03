@@ -1,3 +1,4 @@
+function() {
 let body = document.getElementsByTagName('body')[0];
 let game = document.createElement('div');
 let button = document.createElement('button');
@@ -8,6 +9,9 @@ let currentPlayer;
 let history = document.createElement('div');
 
 body.appendChild(game);
+game.appendChild(history);
+history.innerHTML = `<br><b>History</b>`;
+history.style.textAlign = 'center';
 desk();
 function desk() {
       game.appendChild(document.createElement('br'));
@@ -21,6 +25,7 @@ function desk() {
         p2 = second;
 
         history.innerHTML += `<br>Ход игрока ${first}`;
+        table.addEventListener('click', writeName);
       }
       game.style.display = 'flex';
       game.style.flexDirection = 'column';
@@ -75,9 +80,4 @@ function writeName(e) {
     } else alert('Ячейка занята!');
   }
 }
-
-table.addEventListener('click', writeName);
-
-game.appendChild(history);
-history.innerHTML = `<br><b>History</b>`;
-history.style.textAlign = 'center';
+}();
