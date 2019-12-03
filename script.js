@@ -1,4 +1,4 @@
-function() {
+(function() {
 let body = document.getElementsByTagName('body')[0];
 let game = document.createElement('div');
 let button = document.createElement('button');
@@ -18,15 +18,7 @@ function desk() {
       game.appendChild(button);
       game.appendChild(document.createElement('br'));
       button.innerHTML = 'Играть';
-      button.onclick = function() {
-        let first = prompt('Player 1: ', 'Tim');
-        let second = prompt('Player 2: ', 'Poul');
-        p1 = currentPlayer = first;
-        p2 = second;
-
-        history.innerHTML += `<br>Ход игрока ${first}`;
-        table.addEventListener('click', writeName);
-      }
+      button.onclick = play;
       game.style.display = 'flex';
       game.style.flexDirection = 'column';
       game.style.alignItems = 'center';
@@ -45,6 +37,16 @@ function desk() {
         }
       }
       table.style.borderCollapse = 'collapse';
+      
+      function play() {
+        let first = prompt('Player 1: ', 'Tim');
+        let second = prompt('Player 2: ', 'Poul');
+        p1 = currentPlayer = first;
+        p2 = second;
+
+        history.innerHTML += `<br>Ход игрока ${first}`;
+        table.addEventListener('click', writeName);
+      }
 };
 
 function writeName(e) {
@@ -80,4 +82,4 @@ function writeName(e) {
     } else alert('Ячейка занята!');
   }
 }
-}();
+})();
