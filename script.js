@@ -9,7 +9,6 @@ let currentPlayer;
 let history = document.createElement('div');
 
 body.appendChild(game);
-game.appendChild(history);
 history.innerHTML = `<br><b>History</b>`;
 history.style.textAlign = 'center';
 desk();
@@ -23,6 +22,7 @@ function desk() {
       game.style.flexDirection = 'column';
       game.style.alignItems = 'center';
       game.appendChild(table);
+      game.appendChild(history);
       for (let i = 0; i < 3; i++) {
         let tr = document.createElement('tr');
         table.appendChild(tr);
